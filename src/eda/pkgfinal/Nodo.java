@@ -34,4 +34,9 @@ public class Nodo {
     public void setDer(Nodo der) {
         this.der = der;
     }
+    
+    public int getPuntos() {
+        return this.valor.getPoder();
+    }
+    
 }
