@@ -4,6 +4,10 @@ public class Caballero {
     String nombre;
     int poder;
 
+    public Caballero() {
+        
+    }
+    
     public Caballero(String nombre) {
         this.nombre = nombre;
     }
