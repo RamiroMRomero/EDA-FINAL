@@ -46,14 +46,117 @@ public class Menu {
             switch (seleccion) {
                 case 1: break;
 
-                case 2: break;
+                case 2: 
+                    ElegirCantidadDeRondas();
+                break;
 
-                case 3: break;
+                case 3: 
+                    listaDeContendientes();
+                break;
 
                 case 4: return; 
             }
 
         }
+    }
+    
+    private void ElegirCantidadDeRondas() {
+        boolean invalido;
+        int seleccion = 0;
+        
+        while(true) {
+            
+            do {
+                invalido = false;
+
+                System.out.println("1. UNA RONDA");
+                System.out.println("2. DOS RONDAS");
+                System.out.println("3. TRES RONDAS");
+                System.out.println("4. SALIR");
+
+                seleccion = scan.nextInt();
+                scan.nextLine();            
+
+                if (seleccion < 1 || seleccion > 4) {
+                    System.out.println("");
+                    System.out.println("Ingrese un numero entre 1 y 4");
+                    System.out.println("");
+
+                    invalido = true;
+                }
+
+            }
+            while (invalido);
+            
+            switch (seleccion) {
+                case 1 -> rondas = 1;
+
+                case 2 -> rondas = 2;
+
+                case 3 -> rondas = 3;
+
+                case 4 -> { 
+                    return;
+                }
+            }
+        }
+        
+    }
+    
+    private void listaDeContendientes() {
+        contendientes.cargarCaballerosAleatoreamente(rondas);
+        
+        boolean invalido;
+        int seleccion = 0;
+        int tamaño = contendientes.getContendientes().size();
+        
+        while(true) {
+            
+            do {
+                invalido = false;
+                System.out.println("DETERMINAR UN GANADOR:");
+                contendientes.mostrarListaCaballeros();
+                System.out.println(tamaño+1 + ". NO DETERMINAR UN GANADOR (ALEATORIO)");
+                System.out.println(tamaño+2 + ". SALIR");
+                seleccion = scan.nextInt();
+                scan.nextLine();            
+
+                if (seleccion < 1 || seleccion > tamaño+2) {
+                    System.out.println("");
+                    System.out.println("Ingrese un numero entre 1 y " + tamaño+2);
+                    System.out.println("");
+
+                    invalido = true;
+                }
+
+            }
+            while (invalido);
+            
+            if (seleccion==tamaño+2) {
+                return;
+            }
+            
+            switch (seleccion) {
+
+                case 1: break;
+                
+                case 2: break;
+                
+                case 3: break;
+                
+                case 4: break;
+                
+                case 5: break;
+                
+                case 6: break;
+                
+                case 7: break;
+                
+                case 8: break;
+            }
+            
+        }
+        
     }
     
 }

@@ -8,10 +8,7 @@ public class Contendientes {
     private ArrayList<String> apellidos = new ArrayList<>();
     private ArrayList<Caballero> contendientes = new ArrayList<>();
     
-    public Contendientes() {
-        cargarNombres();
-        cargarApellidos();
-    }
+    public Contendientes() {}
     
     private void cargarNombres() {
         nombres.add("Scott");
@@ -37,6 +34,8 @@ public class Contendientes {
     
     public void cargarCaballerosAleatoreamente(int rondas) {
         contendientes.removeAll(contendientes);
+        cargarNombres();
+        cargarApellidos();
         
         for (int i = 0; i < Math.pow(2, rondas); i++) {
             Caballero caballero = new Caballero();
@@ -96,6 +95,10 @@ public class Contendientes {
             System.out.println(i+1 + ". " + contendientes.get(i).getNombre());
         }
         System.out.println("");
+    }
+
+    public ArrayList<Caballero> getContendientes() {
+        return contendientes;
     }
     
 }
