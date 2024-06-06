@@ -27,10 +27,5 @@ public class Caballero {
     public void setPoder(int Poder) {
         this.poder = Poder;
     }
-
-    @Override
-    public String toString() {
-        return "Caballero{" + "nombre=" + nombre + ", Poder=" + poder + '}';
-    }
     
 }

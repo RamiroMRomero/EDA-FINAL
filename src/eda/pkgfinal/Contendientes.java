@@ -6,13 +6,11 @@ import java.util.Collections;
 public class Contendientes {
     private ArrayList<String> nombres = new ArrayList<>();
     private ArrayList<String> apellidos = new ArrayList<>();
-    
     private ArrayList<Caballero> contendientes = new ArrayList<>();
     
     public Contendientes() {
         cargarNombres();
         cargarApellidos();
-        cargarCaballeros();
     }
     
     private void cargarNombres() {
@@ -37,8 +35,10 @@ public class Contendientes {
         apellidos.add("McKensie");
     }
     
-    public void cargarCaballeros() {
-        for (int i = 0; i < 8; i++) {
+    public void cargarCaballerosAleatoreamente(int rondas) {
+        contendientes.removeAll(contendientes);
+        
+        for (int i = 0; i < Math.pow(2, rondas); i++) {
             Caballero caballero = new Caballero();
             
             Collections.shuffle(nombres);
@@ -53,43 +53,49 @@ public class Contendientes {
             nombres.remove(0);
             apellidos.remove(0);
         }
-    }
-    
-    public void mostrarListaCaballeros() {
-        for (Caballero contendiente : contendientes) {
-            System.out.println(contendiente.toString());
-        }
         
-        System.out.println("");
+        cargarPoder(rondas);
+        
     }
     
-    public void cargarPoder(int rondas) {
+    private void cargarPoder(int rondas) {
         int indice = 1;
-        int contador = 0;
-        int contadorcito = 0;
+        int indiceArreglo = 0;
         Caballero cab = null;
         
-        cab = contendientes.get(contadorcito);
+        cab = contendientes.get(indiceArreglo);
         cab.setPoder(rondas);
-        contendientes.set(contadorcito, cab);
+        contendientes.set(indiceArreglo, cab);
         
         for(int i = 0 ; i < rondas ; i++) {
             for (int j = 0; j < indice; j++) {
-                contadorcito++;
                 
-                while(indice/2 != 0) {
-                    contador++;
-                    indice /= 2;
+                int contador = 0;
+                indiceArreglo++;
+                
+                if (indice/2 != 0) {
+                    while(indice/2 != 0) {
+                        contador++;
+                        indice /= 2;
+                    }
+                    indice = (indice*2)*contador;
                 }
-                indice = (indice*2)*contador;
                 
-                cab = contendientes.get(contadorcito);
+                cab = contendientes.get(indiceArreglo);
                 cab.setPoder((rondas-1)-contador);
-                contendientes.set(contadorcito, cab);
+                contendientes.set(indiceArreglo, cab);
             }
+            
             indice*=2;
         }
         
+    }
+    
+    public void mostrarListaCaballeros() {
+        for (int i = 0; i < contendientes.size(); i++) {
+            System.out.println(i+1 + ". " + contendientes.get(i).getNombre());
+        }
+        System.out.println("");
     }
     
 }

@@ -1,14 +1,9 @@
 package eda.pkgfinal;
 
 public class EDAFINAL {
-    public static void main(String[] args) {
-        Contendientes cont = new Contendientes();
+    public static void main(String[] args) { 
+        Menu menu = new Menu(); 
         
-        
-        cont.mostrarListaCaballeros();
-        
-        cont.cargarPoder(3);
-        
-        cont.mostrarListaCaballeros();
+        menu.menuPrincipal();
     }
 }
