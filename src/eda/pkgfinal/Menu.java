@@ -123,6 +123,10 @@ public class Menu {
             }
             while (invalido);
             
+            if (seleccion==tamaño+1) {
+                contendientes.cargarPoder(rondas, (int) (Math.random() * tamaño));
+            }
+            
             if (seleccion==tamaño+2) {
                 return;
             }

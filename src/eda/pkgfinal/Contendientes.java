@@ -66,7 +66,7 @@ public class Contendientes {
         contendientes.set(indiceGanador, cab);
         
         while (contador != contendientes.size()) {
-      
+            
             for (int i = 0; i < tamaño; i++) {
                 if(contador == indiceGanador) {contador++;}
                 
@@ -78,7 +78,13 @@ public class Contendientes {
             }
             reduccion++;
             tamaño*=2;  
+            
+            if(tamaño == contendientes.size()) {break;}
         }  
+        
+        for (Caballero contendiente : contendientes) {
+            System.out.println(contendiente.getNombre() + " " + contendiente.getPoder());
+        }
         
     }
     
