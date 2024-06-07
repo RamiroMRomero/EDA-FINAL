@@ -88,17 +88,9 @@ public class Menu {
             }
             while (invalido);
             
-            switch (seleccion) {
-                case 1 -> rondas = 1;
-
-                case 2 -> rondas = 2;
-
-                case 3 -> rondas = 3;
-
-                case 4 -> { 
-                    return;
-                }
-            }
+            if (seleccion == 4) {return;}
+            
+            rondas = seleccion;
         }
         
     }
@@ -128,7 +120,6 @@ public class Menu {
 
                     invalido = true;
                 }
-
             }
             while (invalido);
             
@@ -136,25 +127,7 @@ public class Menu {
                 return;
             }
             
-            switch (seleccion) {
-
-                case 1: break;
-                
-                case 2: break;
-                
-                case 3: break;
-                
-                case 4: break;
-                
-                case 5: break;
-                
-                case 6: break;
-                
-                case 7: break;
-                
-                case 8: break;
-            }
-            
+            contendientes.cargarPoder(rondas, seleccion-1);
         }
         
     }

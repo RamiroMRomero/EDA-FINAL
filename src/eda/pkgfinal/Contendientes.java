@@ -53,40 +53,32 @@ public class Contendientes {
             apellidos.remove(0);
         }
         
-        cargarPoder(rondas);
-        
     }
     
-    private void cargarPoder(int rondas) {
-        int indice = 1;
-        int indiceArreglo = 0;
+    public void cargarPoder(int rondas, int indiceGanador) {
+        int contador = 0;
+        int tamaño = 1;
+        int reduccion = 1;
         Caballero cab = null;
         
-        cab = contendientes.get(indiceArreglo);
+        cab = contendientes.get(indiceGanador);
         cab.setPoder(rondas);
-        contendientes.set(indiceArreglo, cab);
+        contendientes.set(indiceGanador, cab);
         
-        for(int i = 0 ; i < rondas ; i++) {
-            for (int j = 0; j < indice; j++) {
+        while (contador != contendientes.size()) {
+      
+            for (int i = 0; i < tamaño; i++) {
+                if(contador == indiceGanador) {contador++;}
                 
-                int contador = 0;
-                indiceArreglo++;
-                
-                if (indice/2 != 0) {
-                    while(indice/2 != 0) {
-                        contador++;
-                        indice /= 2;
-                    }
-                    indice = (indice*2)*contador;
-                }
-                
-                cab = contendientes.get(indiceArreglo);
-                cab.setPoder((rondas-1)-contador);
-                contendientes.set(indiceArreglo, cab);
+                cab = contendientes.get(contador);
+                cab.setPoder(rondas-reduccion);
+                contendientes.set(contador, cab);
+                    
+                contador++;
             }
-            
-            indice*=2;
-        }
+            reduccion++;
+            tamaño*=2;  
+        }  
         
     }
     
@@ -100,5 +92,6 @@ public class Contendientes {
     public ArrayList<Caballero> getContendientes() {
         return contendientes;
     }
+    
     
 }

@@ -1,8 +1,8 @@
 package eda.pkgfinal;
 
 public class Caballero {
-    String nombre;
-    int poder;
+    private String nombre;
+    private int poder;
 
     public Caballero() {
         
