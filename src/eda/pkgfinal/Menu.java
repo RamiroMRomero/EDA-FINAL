@@ -69,9 +69,9 @@ public class Menu {
             do {
                 invalido = false;
 
-                System.out.println("1. UNA RONDA");
-                System.out.println("2. DOS RONDAS");
-                System.out.println("3. TRES RONDAS");
+                System.out.println("1. UNA RONDA (FINAL)");
+                System.out.println("2. DOS RONDAS (SEMIFINAL)");
+                System.out.println("3. TRES RONDAS (CUARTOS DE FINAL)");
                 System.out.println("4. SALIR");
 
                 seleccion = scan.nextInt();

@@ -8,8 +8,9 @@ public class Caballero {
         
     }
     
-    public Caballero(String nombre) {
+    public Caballero(String nombre, int poder) {
         this.nombre = nombre;
+        this.poder = poder;
     }
 
     public String getNombre() {
@@ -27,5 +28,7 @@ public class Caballero {
     public void setPoder(int Poder) {
         this.poder = Poder;
     }
+    
+    
     
 }
