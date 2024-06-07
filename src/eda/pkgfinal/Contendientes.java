@@ -82,9 +82,11 @@ public class Contendientes {
             if(tamaño == contendientes.size()) {break;}
         }  
         
+        /*
         for (Caballero contendiente : contendientes) {
             System.out.println(contendiente.getNombre() + " " + contendiente.getPoder());
         }
+        */
         
     }
     
